@@ -8,12 +8,12 @@
   "theme_color": "#8C103D",
   "icons": [
     {
-      "src": "pnb-icon-192.png", 
+      "src": "OIP.jpeg", 
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "pnb-icon-512.png",
+      "src": "OIP.jpeg",
       "sizes": "512x512",
       "type": "image/png"
     }
