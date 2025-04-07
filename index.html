@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>PNB ONE</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add link to manifest.json for PWA features -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Basic theme color for browser UI -->
+    <meta name="theme-color" content="#8C103D">
+    <!-- Favicon -->
+     <link rel="icon" href="OIP.jpeg" type="image/x-icon">
+    <!-- Icons (using Font Awesome for ease - replace with actual image icons if preferred) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Simple Splash Simulation -->
+    <div class="splash">
+        <img src="OIP.jpeg" alt="PNB Loading">
+         <!-- Replace with actual PNB Logo -->
+    </div>
+
+    <div class="container" style="display: none;"> <!-- Initially hidden -->
+        <header class="top-bar">
+            <img src="pnb-icon-192.png" alt="Punjab National Bank Logo">
+             <!-- Replace with actual PNB Logo banner -->
+        </header>
+
+        <section class="carousel-container">
+            <div class="carousel-slide">
+                <img src="how-to-use-pnb-doorstep-banking-service-for-submitting-digital-life-certificate-.jpg" alt="Carousel Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="how-to-use-pnb-doorstep-banking-service-for-submitting-digital-life-certificate-.jpg" alt="Carousel Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="how-to-use-pnb-doorstep-banking-service-for-submitting-digital-life-certificate-.jpg" alt="Carousel Image 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="how-to-use-pnb-doorstep-banking-service-for-submitting-digital-life-certificate-.jpg" alt="Carousel Image 4">
+            </div>
+             <div class="carousel-slide">
+                <img src="how-to-use-pnb-doorstep-banking-service-for-submitting-digital-life-certificate-.jpg" alt="Carousel Image 5">
+            </div>
+            <div class="carousel-dots">
+                <!-- Dots will be added by JS -->
+            </div>
+        </section>
+
+        <main class="main-content">
+            <div class="input-group">
+                <label for="userId" class="visually-hidden" data-lang-key="userIdLabel">User ID</label>
+                <input type="text" id="userId" placeholder="User ID" data-lang-placeholder="userIdPlaceholder">
+                <i class="fas fa-info-circle info-icon"></i>
+            </div>
+
+            <button id="signInBtn" class="btn btn-primary" disabled data-lang-key="signIn">SIGN IN</button>
+
+            <div class="links">
+                <a href="#" id="newUserLink" data-lang-key="newUser">New user?</a>
+                <a href="#" id="troubleLink" data-lang-key="troubleSigningIn">Trouble signing in?</a>
+            </div>
+
+            <div class="connect-section">
+                <p class="connect-text" data-lang-key="connectWithUs">----Connect with us----</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/pnbindia/" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://x.com/pnbindia" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+                    <a href="https://www.linkedin.com/company/pnbindia/?originalSubdomain=in" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/pnbindia/" aria-label="Instagram"><i class="fab fa-instagram-square"></i></a>
+                    <a href="https://www.youtube.com/pnbindia" aria-label="YouTube"><i class="fab fa-youtube-square"></i></a>
+                </div>
+            </div>
+             <img src="mascot.png" alt="PNB Mascot" class="mascot">
+             <!-- Replace with the actual mascot image -->
+        </main>
+
+        <nav class="bottom-nav">
+            <button id="languageBtn" class="nav-item">
+                <i class="fas fa-language"></i>
+                <span data-lang-key="language">Language</span>
+            </button>
+            <button id="whatsNewBtn" class="nav-item">
+                <i class="fas fa-bell"></i>
+                <span data-lang-key="whatsNew">Whats New</span>
+            </button>
+            <button id="securityTipsBtn" class="nav-item">
+                <i class="fas fa-shield-alt"></i>
+                <span data-lang-key="securityTips">Security Tips</span>
+            </button>
+            <button id="moreBtn" class="nav-item">
+                <i class="fas fa-plus-square"></i>
+                <span data-lang-key="more">More</span>
+            </button>
+        </nav>
+
+        <!-- Modal Structure -->
+        <div id="popupModal" class="modal">
+            <div class="modal-content">
+                <h3 id="modalHeader"></h3>
+                <p id="modalBody"></p>
+                <button id="modalOkBtn" class="btn btn-secondary" data-lang-key="ok">OK</button>
+            </div>
+        </div>
+
+         <!-- Language Selection Modal -->
+        <div id="languageModal" class="modal">
+            <div class="modal-content">
+                <h3 data-lang-key="selectLanguage">Select Language</h3>
+                 <button class="btn lang-option" data-lang="en">English</button>
+                 <button class="btn lang-option" data-lang="hi">हिन्दी</button>
+                <button id="langCancelBtn" class="btn btn-secondary" data-lang-key="cancel">Cancel</button>
+            </div>
+        </div>
+
+    </div> <!-- End of container -->
+
+    <script src="script.js"></script>
+</body>
+</html>

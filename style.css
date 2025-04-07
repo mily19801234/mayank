@@ -1,0 +1,386 @@
+/* Basic Reset & Defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4; /* Light background */
+    color: #333;
+    overscroll-behavior: none; /* Prevent pull-to-refresh if needed */
+}
+
+/* Variables */
+:root {
+    --pnb-maroon: #8C103D; /* Primary dark red/maroon */
+    --pnb-yellow: #FFDA44; /* Primary yellow/gold */
+    --pnb-yellow-dark: #fecb00; /* Button yellow */
+    --pnb-link-red: #a52a2a; /* Color for links */
+    --text-grey: #555;
+    --border-grey: #ccc;
+    --bg-white: #fff;
+}
+
+/* Splash Screen Simulation */
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-white);
+    margin-top: 40%;
+    margin-left: 20%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.9s ease-out;
+}
+
+.splash img {
+    max-width: 60%;
+}
+
+/* Main App Container */
+.container {
+    max-width: 450px; /* Typical mobile width */
+    margin: 0 auto;
+    background-color: var(--bg-white);
+    min-height: 100vh; /* Ensure it takes full height */
+    display: flex; /* Use flex for structure */
+    flex-direction: column; /* Stack elements vertically */
+    border-left: 1px solid #ddd; /* Simulate device edges */
+    border-right: 1px solid #ddd;
+    overflow: hidden; /* Prevent horizontal scroll */
+    position: relative; /* Needed for absolute positioning inside */
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: var(--pnb-maroon);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-bar img {
+    height: 40px; /* Adjust as needed */
+    display: block;
+}
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fdfaea; /* Light yellow background like image */
+}
+
+.carousel-slide {
+    display: none; /* Hide all slides initially */
+    width: 100%;
+    animation: fadeEffect 1s; /* Simple fade */
+}
+
+.carousel-slide.active {
+    display: block; /* Show active slide */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below image */
+    max-height: 220px; /* Limit height */
+    object-fit: cover; /* Cover the area */
+}
+
+/* Carousel fade animation */
+@keyframes fadeEffect {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 2px 5px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 0 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active {
+    background-color: var(--pnb-maroon);
+}
+
+
+/* Main Content Area */
+.main-content {
+    padding: 25px 20px;
+    flex-grow: 1; /* Allow content to take available space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items */
+}
+
+/* Input Group */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 12px 40px 12px 15px; /* Space for icon */
+    border: 1px solid var(--border-grey);
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: var(--text-grey);
+}
+
+.input-group .info-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-grey);
+    font-size: 1.2em;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--pnb-yellow-dark);
+    color: #333; /* Dark text on yellow */
+    font-weight: bold;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.btn-primary:disabled {
+    background-color: #ffeebb; /* Lighter yellow when disabled */
+    opacity: 0.7;
+    cursor: not-allowed;
+    color: #aaa;
+}
+
+.btn-primary:not(:disabled):hover {
+     background-color: #f0c100; /* Darker hover */
+}
+
+.btn-secondary {
+    background-color: #eee;
+    color: var(--text-grey);
+}
+.btn-secondary:hover {
+    background-color: #ddd;
+}
+
+
+/* Links */
+.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.links a {
+    color: var(--pnb-link-red);
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Connect Section */
+.connect-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.connect-text {
+    color: var(--pnb-link-red); /* Match link color */
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between icons */
+}
+
+.social-icons a {
+    color: #333; /* Default icon color */
+    font-size: 2.2em; /* Adjust icon size */
+    text-decoration: none;
+    border-radius: 100px; /* Rounded corners */
+}
+/* Specific Social Colors (optional) */
+.social-icons .fa-facebook-square { color: #3b5998; }
+.social-icons .fa-twitter-square { color: #1da1f2; }
+.social-icons .fa-linkedin { color: #0077b5; }
+.social-icons .fa-instagram-square { color: #e4405f; }
+.social-icons .fa-youtube-square { color: #ff0000; }
+
+/* Mascot */
+.mascot {
+    max-width: 80px; /* Control size */
+    height: auto;
+    margin-top: 10px;
+    /* If needs specific positioning: */
+    /* position: absolute;
+    bottom: 70px; // Adjust based on bottom nav height
+    right: 15px; */
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--pnb-maroon);
+    color: var(--bg-white);
+    padding: 5px 0;
+    position: sticky; /* Keep it at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    line-height: 1.2;
+}
+
+.nav-item i {
+    font-size: 1.6em; /* Icon size */
+    margin-bottom: 3px;
+}
+
+.nav-item span {
+    display: block; /* Ensure span takes its own line */
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover */
+    border-radius: 4px;
+}
+
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex; /* Show when class is added */
+}
+
+.modal-content {
+    background-color: var(--bg-white);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 85%; /* Responsive width */
+    max-width: 350px; /* Max width */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--pnb-maroon);
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    color: var(--text-grey);
+    line-height: 1.5;
+}
+
+.modal-content .btn {
+    margin-top: 10px;
+    min-width: 80px;
+}
+.modal-content .lang-option {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    color: #333;
+}
+.modal-content .lang-option:hover {
+    background-color: #e0e0e0;
+}

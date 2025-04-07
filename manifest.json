@@ -1,0 +1,23 @@
+{
+  "name": "Punjab National Bank",
+  "short_name": "PNB",
+  "description": "PNB Mobile Banking Simulation",
+  "start_url": "index.html",
+  "display": "standalone", 
+  "background_color": "#8C103D",
+  "theme_color": "#8C103D",
+  "icons": [
+    {
+      "src": "images/pnb-icon-192.png", 
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/pnb-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+    
+  ]
+ 
+}
